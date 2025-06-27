@@ -82,11 +82,9 @@ export const Home = ({ showFavorites, onToggleFavorites }: HomeProps) => {
       const selected = shuffled.slice(0, 8);
       Promise.all(
         selected.map((title) =>
-          axios.get(
-            `https://www.omdbapi.com/?apikey=${import.meta.env.VITE_OMDB_KEY}&t=${encodeURIComponent(
-              title
-            )}`
-          )
+          axios.get(`https://www.omdbapi.com/?apikey=${import.meta.env.VITE_OMDB_KEY}&t=${encodeURIComponent(
+            title
+          )}`)
         )
       )
         .then((responses) => {
